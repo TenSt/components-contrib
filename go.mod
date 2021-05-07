@@ -1,4 +1,4 @@
-module github.com/dapr/components-contrib
+module github.com/tenst/components-contrib
 
 go 1.14
 
