@@ -8,6 +8,7 @@ package bearer
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"strings"
 
 	oidc "github.com/coreos/go-oidc"
