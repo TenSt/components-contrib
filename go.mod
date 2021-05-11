@@ -31,6 +31,7 @@ require (
 	github.com/coreos/go-oidc v2.1.0+incompatible
 	github.com/cyphar/filepath-securejoin v0.2.2
 	github.com/dancannon/gorethink v4.0.0+incompatible
+	github.com/dapr/components-contrib v1.0.1-0.20210318212214-192461889c55
 	github.com/dapr/dapr v1.0.1-0.20210325161510-849f52560a63
 	github.com/denisenkom/go-mssqldb v0.0.0-20191128021309-1d7a30a10f73
 	github.com/dghubble/go-twitter v0.0.0-20190719072343-39e5462e111f
