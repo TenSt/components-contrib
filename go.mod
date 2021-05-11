@@ -1,4 +1,4 @@
-module github.com/TenSt/components-contrib
+module github.com/tenst/components-contrib
 
 go 1.14
 
