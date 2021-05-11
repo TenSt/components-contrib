@@ -13,6 +13,7 @@ import (
 	oidc "github.com/coreos/go-oidc"
 	"github.com/dapr/components-contrib/middleware"
 	"github.com/dapr/dapr/pkg/logger"
+	auth "github.com/dapr/dapr/pkg/runtime/security"
 	"github.com/valyala/fasthttp"
 )
 
@@ -55,6 +56,11 @@ func (m *Middleware) GetHandler(metadata middleware.Metadata) (func(h fasthttp.R
 	return func(h fasthttp.RequestHandler) fasthttp.RequestHandler {
 		return func(ctx *fasthttp.RequestCtx) {
 			authHeader := string(ctx.Request.Header.Peek(fasthttp.HeaderAuthorization))
+			if auth.ExcludedRoute(string(ctx.Request.URI().FullURI())) {
+				h(ctx)
+
+				return
+			}
 			if !strings.HasPrefix(strings.ToLower(authHeader), bearerPrefix) {
 				ctx.Error(fasthttp.StatusMessage(fasthttp.StatusUnauthorized), fasthttp.StatusUnauthorized)
 
